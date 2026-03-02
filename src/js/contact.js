@@ -4,8 +4,7 @@ $(document).ready(function() {
 
   if (!$form.length) return;
 
-  // 宛先メールアドレス（※ご自身のメールアドレスに変更してください）
-  const toEmail = 'pandashirokuma@gmail.com';
+  const toEmail = 'pandashirokuma91@gmail.com';
 
   $form.on('submit', function(e) {
     e.preventDefault();
