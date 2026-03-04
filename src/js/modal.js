@@ -1,4 +1,11 @@
 import $ from 'jquery';
+import worksA from '../../assets/image/works-a.jpg';
+import worksB from '../../assets/image/works-b.jpg';
+import worksC from '../../assets/image/works-c.jpg';
+import worksD from '../../assets/image/works-d.jpg';
+import worksE from '../../assets/image/works-e.jpg';
+import worksF from '../../assets/image/works-f.jpg';
+
 $(function () {
   // ===================
   // プロジェクトデータ
@@ -8,42 +15,42 @@ $(function () {
       title: "Project A",
       description: "コーポレートサイトのデザインから実装まで担当しました。ユーザビリティを重視したUI設計を行いました。",
       technologies: ["HTML / CSS", "JavaScript", "WordPress"],
-      image: "./assets/image/works-a.jpg",
+      image: worksA,
       link: "/",
     },
     b: {
       title: "Project B",
       description: "ECサイトのUI/UXデザインを担当。購入導線の最適化により、CVRが30%向上しました。",
       technologies: ["Figma", "Adobe XD", "Photoshop"],
-      image: "./assets/image/works-b.jpg",
+      image: worksB,
       link: "/",
     },
     c: {
       title: "Project C",
       description: "スタートアップ企業のブランディングとWebサイト制作を担当しました。",
       technologies: ["HTML / CSS", "JavaScript", "Illustrator"],
-      image: "./assets/image/works-c.jpg",
+      image: worksC,
       link: "/",
     },
     d: {
       title: "Project D",
       description: "新サービスローンチに向けたランディングページを制作しました。",
       technologies: ["HTML / CSS", "JavaScript", "GSAP"],
-      image: "./assets/image/works-d.jpg",
+      image: worksD,
       link: "/",
     },
     e: {
       title: "Project E",
       description: "WordPressによるオリジナルテーマ開発を行いました。",
       technologies: ["WordPress", "PHP", "MySQL", "JavaScript"],
-      image: "./assets/image/works-e.jpg",
+      image: worksE,
       link: "/",
     },
     f: {
       title: "Project F",
       description: "大手企業のコーポレートサイトリニューアルを担当しました。",
       technologies: ["HTML / CSS", "JavaScript", "WordPress"],
-      image: "./assets/image/works-f.jpg",
+      image: worksF,
       link: "/",
     },
   };
