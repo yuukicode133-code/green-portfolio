@@ -59,19 +59,3 @@ document.fonts.ready.then(() => {
     });
   }, 200);
 });
-
-// デバッグ用: コンソールから window.setProgress(50) で任意の%に固定
-// window.setProgress = function(percent) {
-//   const progress = percent / 100;
-//   const rightInset = (1 - progress) * 100;
-
-//   $revealText.css("clip-path", `inset(0 ${rightInset}% 0 0)`);
-//   $progressFill.css("width", `${percent}%`);
-//   $progressPct.text(`${percent}%`);
-
-//   if (percent >= 100) {
-//     $statusText.text("Complete");
-//   } else {
-//     $statusText.text("Loading...");
-//   }
-// };

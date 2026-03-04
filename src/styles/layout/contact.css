@@ -265,6 +265,233 @@
       margin-top: var(--spacing-size-20);
     }
   }
+
+  /* reCAPTCHAラッパー */
+  &__recaptcha-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-size-16);
+    margin-bottom: var(--spacing-size-8);
+
+    @mixin mq-sp {
+      transform: scale(0.9);
+      transform-origin: center;
+    }
+  }
+
+  /* 画面切り替え用 */
+  &__form-wrapper--hidden {
+    display: none !important;
+  }
+
+  /* 確認画面 */
+  &__confirm {
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: var(--spacing-size-24);
+
+    @mixin mq-sp {
+      padding: var(--spacing-size-16);
+      max-width: 100%;
+    }
+  }
+
+  &__confirm-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-jp);
+    color: var(--color-black);
+    text-align: center;
+    margin-bottom: var(--spacing-size-24);
+
+    @mixin mq-sp {
+      font-size: var(--font-size-lg);
+      margin-bottom: var(--spacing-size-20);
+    }
+  }
+
+  &__confirm-content {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: var(--spacing-size-20);
+    margin-bottom: var(--spacing-size-24);
+
+    @mixin mq-sp {
+      padding: var(--spacing-size-16);
+      margin-bottom: var(--spacing-size-20);
+    }
+  }
+
+  &__confirm-item {
+    margin-bottom: var(--spacing-size-16);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @mixin mq-sp {
+      margin-bottom: var(--spacing-size-12);
+    }
+  }
+
+  &__confirm-label {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-jp);
+    color: var(--color-black);
+    margin-bottom: var(--spacing-size-8);
+  }
+
+  &__confirm-value {
+    font-size: var(--font-size-md);
+    font-family: var(--font-family-jp);
+    color: var(--color-black);
+    line-height: 1.6;
+
+    @mixin mq-sp {
+      font-size: var(--font-size-base);
+    }
+
+    &--message {
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+  }
+
+  &__confirm-buttons {
+    display: flex;
+    gap: var(--spacing-size-16);
+    justify-content: center;
+
+    @mixin mq-sp {
+      flex-direction: column;
+      gap: var(--spacing-size-12);
+    }
+  }
+
+  /* 送信完了画面 */
+  &__complete {
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    padding: var(--spacing-size-24);
+
+    @mixin mq-sp {
+      padding: var(--spacing-size-16);
+      max-width: 100%;
+    }
+  }
+
+  &__complete-icon {
+    margin-bottom: var(--spacing-size-24);
+    display: flex;
+    justify-content: center;
+
+    @mixin mq-sp {
+      margin-bottom: var(--spacing-size-20);
+    }
+
+    svg {
+      width: 80px;
+      height: 80px;
+
+      @mixin mq-sp {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+
+  &__complete-title {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-jp);
+    color: var(--color-white);
+    margin-bottom: var(--spacing-size-16);
+
+    @mixin mq-sp {
+      font-size: var(--font-size-lg);
+      margin-bottom: var(--spacing-size-12);
+    }
+  }
+
+  &__complete-message {
+    font-size: var(--font-size-md);
+    font-family: var(--font-family-jp);
+    color: var(--color-white);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-size-32);
+
+    @mixin mq-sp {
+      font-size: var(--font-size-base);
+      margin-bottom: var(--spacing-size-24);
+    }
+  }
+
+  /* ボタン共通スタイル */
+  &__button {
+    padding: var(--spacing-size-12) var(--spacing-size-32);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-jp);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @mixin mq-sp {
+      font-size: var(--font-size-base);
+      padding: var(--spacing-size-10) var(--spacing-size-24);
+      width: 100%;
+    }
+
+    &--back {
+      background-color: var(--color-white);
+      color: var(--color-black);
+      border: 2px solid var(--color-black);
+    }
+
+    &--submit {
+      background-color: var(--color-black);
+      color: var(--color-white);
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    &--reset {
+      background-color: var(--color-white);
+      color: var(--color-black);
+    }
+  }
+
+  /* エラー表示 */
+  .error-message {
+    display: block;
+    color: var(--color-contact-required);
+    font-size: var(--font-size-xs);
+    font-family: var(--font-family-jp);
+    margin-top: var(--spacing-size-4);
+  }
+
+  .contact__input.error,
+  .contact__textarea.error {
+    border-color: var(--color-contact-required);
+  }
 }
 
 /* ブロブのモーフィングアニメーション - PCのみ */

@@ -38,6 +38,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Shippori+Mincho+B1&family=Inter:wght@500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./src/styles/main.css" />
 
+    <!-- reCAPTCHA v2 -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+      (function() {
+        emailjs.init("FOq-J0DnYMyoz09TK");
+      })();
+    </script>
+
     <!-- JSON-LD構造化データ -->
     <script type="application/ld+json">
       {
@@ -421,7 +432,8 @@
             <h2 class="contact__title en" id="contact-title">Contact</h2>
 
             <div class="contact__blob" aria-hidden="true">
-              <div class="contact__form-wrapper">
+              <!-- 入力画面 -->
+              <div class="contact__form-wrapper" id="input-screen">
                 <form class="contact__form" id="contact-form" novalidate aria-label="お問い合わせフォーム">
                   <div class="contact__form-group">
                     <label for="contact-name" class="contact__label"> お名前 <span class="contact__required" aria-label="必須">*</span> </label>
@@ -447,13 +459,60 @@
                       <span class="contact__checkbox-custom" aria-hidden="true"></span>
                       <span class="contact__checkbox-text">プライバシーポリシーに同意する</span>
                     </label>
-                    <p class="contact__privacy-note" id="privacy-note">※このサイトはサンプルサイトです。<br />フォームから送信された内容は制作者に届きます。送信ボタンをクリックするとメールアプリが起動します。</p>
+                    <p class="contact__privacy-note" id="privacy-note">※このフォームから送信された内容は制作者に届きます。</p>
+                  </div>
+
+                  <div class="contact__recaptcha-wrapper">
+                    <div class="g-recaptcha" data-sitekey="6LchZn4sAAAAAOM1twGRsW2ehzYXOUaSwPvn6fEs"></div>
                   </div>
 
                   <div class="contact__submit-wrapper">
-                    <button type="submit" class="contact__submit" aria-label="お問い合わせを送信">送信する</button>
+                    <button type="submit" class="contact__submit" aria-label="確認画面へ進む">確認画面へ</button>
                   </div>
                 </form>
+              </div>
+
+              <!-- 確認画面 -->
+              <div class="contact__form-wrapper contact__form-wrapper--hidden" id="confirm-screen">
+                <div class="contact__confirm">
+                  <h3 class="contact__confirm-title">入力内容の確認</h3>
+                  <div class="contact__confirm-content">
+                    <div class="contact__confirm-item">
+                      <div class="contact__confirm-label">お名前</div>
+                      <div class="contact__confirm-value" id="confirm-name"></div>
+                    </div>
+                    <div class="contact__confirm-item">
+                      <div class="contact__confirm-label">メールアドレス</div>
+                      <div class="contact__confirm-value" id="confirm-email"></div>
+                    </div>
+                    <div class="contact__confirm-item">
+                      <div class="contact__confirm-label">お問い合わせ内容</div>
+                      <div class="contact__confirm-value contact__confirm-value--message" id="confirm-message"></div>
+                    </div>
+                  </div>
+                  <div class="contact__confirm-buttons">
+                    <button type="button" class="contact__button contact__button--back" id="back-button">戻る</button>
+                    <button type="button" class="contact__button contact__button--submit" id="submit-button">送信する</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 送信完了画面 -->
+              <div class="contact__form-wrapper contact__form-wrapper--hidden" id="complete-screen">
+                <div class="contact__complete">
+                  <div class="contact__complete-icon" aria-hidden="true">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                      <circle cx="40" cy="40" r="38" stroke="#fff" stroke-width="4"/>
+                      <path d="M20 40L35 55L60 25" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                  <h3 class="contact__complete-title">送信完了</h3>
+                  <p class="contact__complete-message">
+                    お問い合わせありがとうございます。<br />
+                    内容を確認次第、ご連絡させていただきます。
+                  </p>
+                  <button type="button" class="contact__button contact__button--reset" id="reset-button">新しいお問い合わせ</button>
+                </div>
               </div>
             </div>
           </div>
@@ -466,7 +525,7 @@
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </button>
-
+        npm run dev
         <div class="works-modal__slider" role="region" aria-label="プロジェクト詳細スライダー">
           <div class="works-modal__slides" aria-live="polite" aria-atomic="true">
             <div class="works-modal__slide is-active" data-slide="1" role="group" aria-label="スライド 1 of 4">
