@@ -108,7 +108,6 @@ $(document).ready(function () {
     $("#confirm-name").text(formData['contact-name']);
     $("#confirm-email").text(formData['contact-email']);
     $("#confirm-message").text(formData['contact-message']);
-    $("#confirm-title").text(formData['title']);
   }
 
   // フォーム送信（確認画面へ）
@@ -123,7 +122,6 @@ $(document).ready(function () {
     formData['contact-name'] = $("#contact-name").val().trim();
     formData['contact-email'] = $("#contact-email").val().trim();
     formData['contact-message'] = $("#contact-message").val().trim();
-    formData['title'] = "サンプルサイトのお問い合わせ";
 
     // 確認画面に内容を設定して表示
     setConfirmContent();
@@ -164,7 +162,7 @@ $(document).ready(function () {
       'contact-name': "",
       'contact-email': "",
       'contact-message': "",
-      'title': "サンプルサイトのお問い合わせ",
+      title: "サンプルサイトのお問い合わせ",
     };
     // reCAPTCHAをリセット
     grecaptcha.reset();
