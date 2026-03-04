@@ -105,9 +105,10 @@ $(document).ready(function () {
 
   // 確認画面に表示する内容を設定
   function setConfirmContent() {
-    $("#confirm-name").text(formData.user_name);
-    $("#confirm-email").text(formData.user_email);
-    $("#confirm-message").text(formData.message);
+    $("#confirm-name").text(formData['contact-name']);
+    $("#confirm-email").text(formData['contact-email']);
+    $("#confirm-message").text(formData['contact-message']);
+    $("#confirm-title").text(formData['title']);
   }
 
   // フォーム送信（確認画面へ）
@@ -119,9 +120,10 @@ $(document).ready(function () {
     }
 
     // フォームデータを保存
-    formData.user_name = $("#contact-name").val().trim();
-    formData.user_email = $("#contact-email").val().trim();
-    formData.message = $("#contact-message").val().trim();
+    formData['contact-name'] = $("#contact-name").val().trim();
+    formData['contact-email'] = $("#contact-email").val().trim();
+    formData['contact-message'] = $("#contact-message").val().trim();
+    formData['title'] = "サンプルサイトのお問い合わせ";
 
     // 確認画面に内容を設定して表示
     setConfirmContent();
@@ -159,9 +161,10 @@ $(document).ready(function () {
     // フォームをリセット
     $form[0].reset();
     formData = {
-      user_name: "",
-      user_email: "",
-      message: "",
+      'contact-name': "",
+      'contact-email': "",
+      'contact-message': "",
+      'title': "サンプルサイトのお問い合わせ",
     };
     // reCAPTCHAをリセット
     grecaptcha.reset();
