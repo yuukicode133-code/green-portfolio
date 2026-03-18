@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/portfolio/',
+  base: '/green-portfolio/',
   build: {
     outDir: 'dist',    // ビルド出力先
   },
